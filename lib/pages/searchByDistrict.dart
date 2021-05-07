@@ -109,6 +109,12 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
                     );
                   }).toList(),
                   onChanged: (String val) async {
+                    // _chosenDistrictId is set null so as to set the district
+                    // list a null value to render empty list, otherwise it would
+                    // lead to an error where there would be a mismatch of
+                    // state_id and district_id values
+                    _chosenDistrictId = null;
+
                     // val is the state Id of the selection
                     getDistrictsList(val);
                     setState(() {
@@ -116,7 +122,7 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
                     });
                   },
                 ),
-            SizedBox(height: 20,),
+            SizedBox(height: 20),
             (districtList == null) ? SizedBox(height: 5) :
             DropdownButton<String>(
               icon: Icon(Icons.keyboard_arrow_down, color: Colors.blue,),
@@ -145,8 +151,13 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
                 child: Text('Search', style: TextStyle(color: Colors.black),),
                 onPressed: () {
                   // TODO: add search by district function
-                  // if no state is selected then add a response for that too
-                  openSnackBar(context, 'Search function coming soon!');
+                  if(_chosenStateId != null && _chosenDistrictId != null)
+                    Navigator.pushNamed(context, '/districtEntries', arguments: {
+                      'state_id': _chosenStateId,
+                      'district_id': _chosenDistrictId,
+                    });
+                  else
+                    openSnackBar(context, 'Please select a state and district');
                 },
               ),
             ),
