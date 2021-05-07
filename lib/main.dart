@@ -1,3 +1,4 @@
+import 'package:cowin_vaccine_slot_checker/pages/districtEntries.dart';
 import 'package:cowin_vaccine_slot_checker/pages/searchByDistrict.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ void main()
       '/': (context) => HomeScreen(),
       // '/searchByPIN': (context) => SearchByPin(),
       '/searchByDistrict': (context) => SearchByDistrict(),
+      '/districtEntries': (context) => DistrictEntries(),
     },
   ));
 }
