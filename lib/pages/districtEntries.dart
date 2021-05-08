@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:cowin_vaccine_slot_checker/classes/required_classes.dart';
+import 'package:cowin_vaccine_slot_checker/classes_and_modules/required_classes.dart';
+import 'package:cowin_vaccine_slot_checker/classes_and_modules/listViewBuilder_sessions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -26,8 +27,6 @@ class _DistrictEntriesState extends State<DistrictEntries> {
     String date = currDate.day.toString() + '-' + currDate.month.toString() + '-'
                   +  currDate.year.toString() + '-';
 
-    while(args == null){
-    };
 
     final apiRequestUrl = apiRequestForCenters + 'district_id=' + args['district_id']
                           + '&date=' + date;
@@ -95,41 +94,7 @@ class _DistrictEntriesState extends State<DistrictEntries> {
           Center(
             child: CircularProgressIndicator(),
           ) :
-          ListView.builder(
-            itemCount: centers.length,
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  color: Colors.blue[400],
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                ),
-                margin: EdgeInsets.fromLTRB(5, 3, 5, 3),
-                child: ExpansionTile(
-                  title: Text(centers[index].name),
-                  subtitle: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width/3,
-                        child: Text(centers[index].address),
-                      ),
-                      Text('Min Age: ${centers[index].minAgeLimit}')
-                    ],
-                  ),
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text('Available slots: ${centers[index].availableCapacity}'),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              );
-            },
-          ),
+              ListViewSessions(centers: centers),
         ),
       ),
     );

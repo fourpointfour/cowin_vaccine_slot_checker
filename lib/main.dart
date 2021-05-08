@@ -1,5 +1,6 @@
 import 'package:cowin_vaccine_slot_checker/pages/districtEntries.dart';
 import 'package:cowin_vaccine_slot_checker/pages/searchByDistrict.dart';
+import 'package:cowin_vaccine_slot_checker/pages/searchByPin.dart';
 import 'package:flutter/material.dart';
 
 void main()
@@ -7,7 +8,7 @@ void main()
   runApp(MaterialApp(
     routes: {
       '/': (context) => HomeScreen(),
-      // '/searchByPIN': (context) => SearchByPin(),
+      '/searchByPin': (context) => SearchByPin(),
       '/searchByDistrict': (context) => SearchByDistrict(),
       '/districtEntries': (context) => DistrictEntries(),
     },
@@ -58,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: (){
-                  openSnackBar(context, 'Coming soon!');
+                  Navigator.pushNamed(context, '/searchByPin');
                 },
               ),
             ),
@@ -120,6 +121,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+// todo: remove snackbar (main.dart) if not needed
 void openSnackBar(BuildContext context, String str)
 {
   ScaffoldMessenger.of(context).showSnackBar(
