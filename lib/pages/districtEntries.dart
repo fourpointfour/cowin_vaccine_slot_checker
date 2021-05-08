@@ -90,6 +90,7 @@ class _DistrictEntriesState extends State<DistrictEntries> {
       ),
       body: Container(
         child: Container(
+          // todo: add something to do if no centers are available
           child: (centers == null) ?
           Center(
             child: CircularProgressIndicator(),
@@ -103,7 +104,7 @@ class _DistrictEntriesState extends State<DistrictEntries> {
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                 ),
                 margin: EdgeInsets.fromLTRB(5, 3, 5, 3),
-                child: ListTile(
+                child: ExpansionTile(
                   title: Text(centers[index].name),
                   subtitle: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,6 +116,16 @@ class _DistrictEntriesState extends State<DistrictEntries> {
                       Text('Min Age: ${centers[index].minAgeLimit}')
                     ],
                   ),
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Text('Available slots: ${centers[index].availableCapacity}'),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               );
             },

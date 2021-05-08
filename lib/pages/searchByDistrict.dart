@@ -98,9 +98,8 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
             (stateList == null) ? CircularProgressIndicator() :
                 DropdownButton<String>(
                   icon: Icon(Icons.keyboard_arrow_down, color: Colors.blue,),
-                  // TODO: add meaningful Strings to hint and disabled hint
                   hint: Text('Select a state'),
-                  disabledHint: Text('Disabled hint'),
+                  disabledHint: Text('Button disabled, reload app'),
                   value: _chosenStateId,
                   items: stateList.map<DropdownMenuItem<String>>((String stateName){
                     return DropdownMenuItem<String>(
@@ -150,7 +149,6 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
               child: TextButton(
                 child: Text('Search', style: TextStyle(color: Colors.black),),
                 onPressed: () {
-                  // TODO: add search by district function
                   if(_chosenStateId != null && _chosenDistrictId != null)
                     Navigator.pushNamed(context, '/districtEntries', arguments: {
                       'state_id': _chosenStateId,
