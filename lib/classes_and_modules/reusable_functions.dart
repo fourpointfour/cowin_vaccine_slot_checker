@@ -12,10 +12,16 @@ Future<void> showDialog(BuildContext context, String popUntilRoute) async {
         alignment: Alignment.bottomCenter,
         child: Container(
           height: 250,
-          child: Expanded(
+          child: Container(
             child: Column(
               children: [
-                Text('No Centers available!'),
+                Text(
+                  'No Centers available!',
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.white,
+                  ),
+                ),
                 TextButton(
                   child: Text('Okay'),
                   onPressed: () {
@@ -27,7 +33,7 @@ Future<void> showDialog(BuildContext context, String popUntilRoute) async {
           ),
           margin: EdgeInsets.only(bottom: 50, left: 12, right: 12),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0xffa87de8),
             borderRadius: BorderRadius.circular(40),
           ),
         ),

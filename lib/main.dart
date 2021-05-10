@@ -7,7 +7,17 @@ import 'package:flutter/material.dart';
 void main()
 {
   runApp(MaterialApp(
-    theme: ThemeData(fontFamily: 'RobotoSlab'),
+    theme: ThemeData(
+      fontFamily: 'RobotoSlab',
+      scaffoldBackgroundColor: Color(0xffa87de8),
+      appBarTheme: AppBarTheme(
+        color: Color(0xffa87de8),
+        elevation: 0,
+      ),
+      buttonTheme: ButtonThemeData(
+        buttonColor: Color(0xffa87de8),
+      ),
+    ),
     routes: {
       '/': (context) => HomeScreen(),
       '/searchByPin': (context) => SearchByPin(),
@@ -22,30 +32,26 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffab9adf),
       appBar: AppBar(
         title: Text('Vaccine Slot Checker'),
-        backgroundColor: Color(0xffab9adf),
-        elevation: 0,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              // width: (MediaQuery.of(context).size.width)/3,
+              width: (MediaQuery.of(context).size.width)/1.5,
               decoration: BoxDecoration(
-                color: Color(0xffab9adf),
                 borderRadius: BorderRadius.all(Radius.circular(12)),
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0xff897baf),
+                    color: Color(0xff8f6ac5),
                     offset: Offset(1, 1),
-                    blurRadius: 3,
+                    blurRadius: 2,
                     spreadRadius: 3,
                   ),
                   BoxShadow(
-                    color: Color(0xffcdb9ff),
+                    color: Color(0xffc190ff),
                     offset: Offset(-1, -1),
                     blurRadius: 3,
                     spreadRadius: 2,
@@ -56,9 +62,8 @@ class HomeScreen extends StatelessWidget {
                 child: Text(
                   "Search By PIN",
                   style: TextStyle(
+                    color: Colors.white,
                     fontSize: 25,
-                    color: Colors.black45,
-                    fontStyle: FontStyle.italic,
                   ),
                 ),
                 onPressed: (){
@@ -68,19 +73,18 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 20,),
             Container(
-              // width: (MediaQuery.of(context).size.width)/3,
+              width: (MediaQuery.of(context).size.width)/1.5,
               decoration: BoxDecoration(
-                  color: Color(0xffab9adf),
                   borderRadius: BorderRadius.all(Radius.circular(12)),
                   boxShadow: [
                     BoxShadow(
-                      color: Color(0xff897baf),
+                      color: Color(0xff8f6ac5),
                       offset: Offset(1, 1),
-                      blurRadius: 3,
+                      blurRadius: 2,
                       spreadRadius: 3,
                     ),
                     BoxShadow(
-                      color: Color(0xffcdb9ff),
+                      color: Color(0xffc190ff),
                       offset: Offset(-1, -1),
                       blurRadius: 3,
                       spreadRadius: 2,
@@ -91,9 +95,8 @@ class HomeScreen extends StatelessWidget {
                 child: Text(
                   "Search By District",
                   style: TextStyle(
+                    color: Colors.white,
                     fontSize: 25,
-                    color: Colors.black45,
-                    fontStyle: FontStyle.italic,
                   ),
                 ),
                 onPressed: (){

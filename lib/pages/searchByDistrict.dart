@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -43,7 +42,7 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
           stateId = tempDict;
         });
       } else {
-        print('Reponse returned with error code: ${response.statusCode}');
+        print('Response returned with error code: ${response.statusCode}');
       }
     } catch (e) {
       print(e.toString());
@@ -96,58 +95,157 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             (stateList == null) ? CircularProgressIndicator() :
-                DropdownButton<String>(
-                  icon: Icon(Icons.keyboard_arrow_down, color: Colors.blue,),
-                  hint: Text('Select a state'),
-                  disabledHint: Text('Button disabled, reload app'),
-                  value: _chosenStateId,
-                  items: stateList.map<DropdownMenuItem<String>>((String stateName){
-                    return DropdownMenuItem<String>(
-                      value: stateId[stateName],
-                      child: Text(stateName),
-                    );
-                  }).toList(),
-                  onChanged: (String val) async {
-                    // _chosenDistrictId is set null so as to set the district
-                    // list a null value to render empty list, otherwise it would
-                    // lead to an error where there would be a mismatch of
-                    // state_id and district_id values
-                    _chosenDistrictId = null;
+                Container(
+                  width: MediaQuery.of(context).size.width/1.4,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xff8f6ac5),
+                        offset: Offset(1, 1),
+                        blurRadius: 2,
+                        spreadRadius: 3,
+                      ),
+                      BoxShadow(
+                        color: Color(0xffc190ff),
+                        offset: Offset(-1, -1),
+                        blurRadius: 3,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                  ),
+                  child: DropdownButton<String>(
+                    dropdownColor: Color(0xffa87de8),
+                    underline: Container(),
+                    icon: Icon(Icons.arrow_downward_rounded, color: Colors.blue,),
+                    hint: Container(
+                      margin: EdgeInsets.only(left: 9),
+                      child: Text(
+                        'Select a state',
+                        style: TextStyle(
+                          color: Colors.black54,
+                        ),
+                      ),
+                    ),
+                    disabledHint: Container(
+                      margin: EdgeInsets.only(left: 9),
+                      child: Text('Button disabled, reload app!'),
+                    ),
+                    value: _chosenStateId,
+                    items: stateList.map<DropdownMenuItem<String>>((String stateName){
+                      return DropdownMenuItem<String>(
+                        value: stateId[stateName],
+                        child: Container(
+                          margin: EdgeInsets.only(left: 9),
+                          child: Text(
+                            stateName,
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                    onChanged: (String val) async {
+                      // _chosenDistrictId is set null so as to set the district
+                      // list a null value to render empty list, otherwise it would
+                      // lead to an error where there would be a mismatch of
+                      // state_id and district_id values
+                      _chosenDistrictId = null;
 
-                    // val is the state Id of the selection
-                    getDistrictsList(val);
-                    setState(() {
-                      _chosenStateId = val;
-                    });
-                  },
+                      // val is the state Id of the selection
+                      getDistrictsList(val);
+                      setState(() {
+                        _chosenStateId = val;
+                      });
+                    },
+                  ),
                 ),
             SizedBox(height: 20),
             (districtList == null) ? SizedBox(height: 5) :
-            DropdownButton<String>(
-              icon: Icon(Icons.keyboard_arrow_down, color: Colors.blue,),
-              hint: Text('Select district'),
-              disabledHint: Text('Select a state first'),
-              value: _chosenDistrictId,
-              items: districtList.map<DropdownMenuItem<String>>((String districtName){
-                return DropdownMenuItem<String>(
-                  value: districtId[districtName],
-                  child: Text(districtName),
-                );
-              }).toList(),
-              onChanged: (String val) {
-                setState(() {
-                  _chosenDistrictId = val;
-                });
-              },
+            Container(
+              width: MediaQuery.of(context).size.width/1.4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xff8f6ac5),
+                    offset: Offset(1, 1),
+                    blurRadius: 2,
+                    spreadRadius: 3,
+                  ),
+                  BoxShadow(
+                    color: Color(0xffc190ff),
+                    offset: Offset(-1, -1),
+                    blurRadius: 3,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
+              child: DropdownButton<String>(
+                dropdownColor: Color(0xffa87de8),
+                underline: Container(),
+                icon: Icon(Icons.arrow_downward_rounded, color: Colors.blue,),
+                hint: Container(
+                  margin: EdgeInsets.only(left: 9),
+                  child: Text(
+                    'Select district',
+                    style: TextStyle(
+                      color: Colors.black54,
+                    ),
+                  ),
+                ),
+                disabledHint: Text('Select a state first'),
+                value: _chosenDistrictId,
+                items: districtList.map<DropdownMenuItem<String>>((String districtName){
+                  return DropdownMenuItem<String>(
+                    value: districtId[districtName],
+                    child: Container(
+                      margin: EdgeInsets.only(left: 9),
+                      child: Text(
+                        districtName,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  );
+                }).toList(),
+                onChanged: (String val) {
+                  setState(() {
+                    _chosenDistrictId = val;
+                  });
+                },
+              ),
             ),
             SizedBox(height: 20,),
             Container(
+              height: 40,
               decoration: BoxDecoration(
-                color: Colors.pinkAccent[100],
                 borderRadius: BorderRadius.all(Radius.circular(10)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xff8f6ac5),
+                    offset: Offset(1, 1),
+                    blurRadius: 2,
+                    spreadRadius: 3,
+                  ),
+                  BoxShadow(
+                    color: Color(0xffc190ff),
+                    offset: Offset(-1, -1),
+                    blurRadius: 3,
+                    spreadRadius: 2,
+                  ),
+                ],
               ),
               child: TextButton(
-                child: Text('Search', style: TextStyle(color: Colors.black),),
+                child: Text(
+                  'Search',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
                 onPressed: () {
                   if(_chosenStateId != null && _chosenDistrictId != null)
                     Navigator.pushNamed(context, '/districtEntries', arguments: {

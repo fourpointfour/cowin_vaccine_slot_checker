@@ -21,12 +21,38 @@ class _SearchByPinState extends State<SearchByPin> {
         child: Form(
           key: _formKey,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width/2,
+                width: MediaQuery.of(context).size.width/1.5,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0xff8f6ac5),
+                      offset: Offset(1, 1),
+                      blurRadius: 2,
+                      spreadRadius: 3,
+                    ),
+                    BoxShadow(
+                      color: Color(0xffc190ff),
+                      offset: Offset(-1, -1),
+                      blurRadius: 3,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
                 child: TextFormField(
                   decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 9),
+                    border: InputBorder.none,
                     hintText: 'Enter your pincode',
+                    hintStyle: TextStyle(
+                      color: Colors.white70,
+                    ),
+                  ),
+                  style: TextStyle(
+                    color: Colors.white,
                   ),
                   validator: (value) {
                     if(value.length < 6 || value.length > 6 || value == null || value.isEmpty) {
@@ -54,21 +80,46 @@ class _SearchByPinState extends State<SearchByPin> {
               // ),
               SizedBox(height: 15,),
               // button to search
-              TextButton(
-                child: Text('Search'),
-                onPressed: () {
-                  if(_formKey.currentState.validate()) {
-                    setState(() {
-                      errorMessage = '';
-                    });
-                    // open district entries by pincode page
-                    Navigator.pushNamed(context, '/sessionEntriesByPin', arguments: _pincode);
-                  } else {
-                    setState(() {
-                      errorMessage = 'Please enter a valid pincode';
-                    });
-                  }
-                },
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0xff8f6ac5),
+                      offset: Offset(1, 1),
+                      blurRadius: 2,
+                      spreadRadius: 3,
+                    ),
+                    BoxShadow(
+                      color: Color(0xffc190ff),
+                      offset: Offset(-1, -1),
+                      blurRadius: 3,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                child: TextButton(
+                  child: Text(
+                    'Search',
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: () {
+                    if(_formKey.currentState.validate()) {
+                      setState(() {
+                        errorMessage = '';
+                      });
+                      // open district entries by pincode page
+                      Navigator.pushNamed(context, '/sessionEntriesByPin', arguments: _pincode);
+                    } else {
+                      setState(() {
+                        errorMessage = 'Please enter a valid pincode';
+                      });
+                    }
+                  },
+                ),
               ),
             ],
           ),

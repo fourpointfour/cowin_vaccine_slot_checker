@@ -19,21 +19,49 @@ class _ListViewSessionsState extends State<ListViewSessions> {
       itemCount: c.length,
       itemBuilder: (context, index) {
         return Container(
+          margin: EdgeInsets.fromLTRB(7, 5, 7, 5),
           decoration: BoxDecoration(
-            color: Colors.blue[400],
             borderRadius: BorderRadius.all(Radius.circular(8)),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xff8f6ac5),
+                offset: Offset(1, 1),
+                blurRadius: 2,
+                spreadRadius: 3,
+              ),
+              BoxShadow(
+                color: Color(0xffc190ff),
+                offset: Offset(-1, -1),
+                blurRadius: 3,
+                spreadRadius: 2,
+              ),
+            ],
           ),
-          margin: EdgeInsets.fromLTRB(5, 3, 5, 3),
           child: ExpansionTile(
-            title: Text(c[index].name),
+            title: Text(
+              c[index].name,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
             subtitle: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width/3,
-                  child: Text(c[index].address),
+                  child: Text(
+                    c[index].address,
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-                Text('Min Age: ${c[index].minAgeLimit}')
+                Text(
+                  'Min Age: ${c[index].minAgeLimit}',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                )
               ],
             ),
             children: [
@@ -41,7 +69,17 @@ class _ListViewSessionsState extends State<ListViewSessions> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    child: Text('Available slots: ${c[index].availableCapacity}'),
+                    margin: EdgeInsets.only(left: 15),
+                    child: Container(
+                      padding: EdgeInsets.only(bottom: 5),
+                      child: Text(
+                        'Available slots: ${c[index].availableCapacity}',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               )
