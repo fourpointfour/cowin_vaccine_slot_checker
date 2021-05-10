@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:cowin_vaccine_slot_checker/classes_and_modules/required_classes.dart';
 import 'package:cowin_vaccine_slot_checker/classes_and_modules/listViewBuilder_sessions.dart';
+import 'package:cowin_vaccine_slot_checker/classes_and_modules/reusable_functions.dart' as func;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -23,7 +24,6 @@ class _DistrictEntriesState extends State<DistrictEntries> {
 
   Future<void> getCenterList() async {
     var currDate = DateTime.now();
-
     String date = currDate.day.toString() + '-' + currDate.month.toString() + '-'
                   +  currDate.year.toString() + '-';
 
@@ -62,6 +62,9 @@ class _DistrictEntriesState extends State<DistrictEntries> {
           );
         });
 
+        if(tempList.length == 0) {
+          await func.showDialog(context, '/searchByDistrict');
+        }
         setState(() {
           centers = tempList;
         });

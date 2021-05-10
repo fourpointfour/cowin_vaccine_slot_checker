@@ -57,17 +57,17 @@ class _SearchByPinState extends State<SearchByPin> {
               TextButton(
                 child: Text('Search'),
                 onPressed: () {
-                  openSnackBar(context, 'Coming soon!');
-                  // if(_formKey.currentState.validate()) {
-                  //   setState(() {
-                  //     errorMessage = '';
-                  //   });
-                  //   // open district entries by pincode page
-                  // } else {
-                  //   setState(() {
-                  //     errorMessage = 'Please enter a valid pincode';
-                  //   });
-                  // }
+                  if(_formKey.currentState.validate()) {
+                    setState(() {
+                      errorMessage = '';
+                    });
+                    // open district entries by pincode page
+                    Navigator.pushNamed(context, '/sessionEntriesByPin', arguments: _pincode);
+                  } else {
+                    setState(() {
+                      errorMessage = 'Please enter a valid pincode';
+                    });
+                  }
                 },
               ),
             ],

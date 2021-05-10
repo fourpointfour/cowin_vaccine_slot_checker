@@ -1,14 +1,17 @@
 import 'package:cowin_vaccine_slot_checker/pages/districtEntries.dart';
 import 'package:cowin_vaccine_slot_checker/pages/searchByDistrict.dart';
 import 'package:cowin_vaccine_slot_checker/pages/searchByPin.dart';
+import 'package:cowin_vaccine_slot_checker/pages/sessionEntriesByPin.dart';
 import 'package:flutter/material.dart';
 
 void main()
 {
   runApp(MaterialApp(
+    theme: ThemeData(fontFamily: 'RobotoSlab'),
     routes: {
       '/': (context) => HomeScreen(),
       '/searchByPin': (context) => SearchByPin(),
+      '/sessionEntriesByPin': (context) => SessionEntriesByPin(),
       '/searchByDistrict': (context) => SearchByDistrict(),
       '/districtEntries': (context) => DistrictEntries(),
     },
