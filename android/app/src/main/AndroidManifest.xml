@@ -2,7 +2,7 @@
     package="com.fourpointfour.cowin_vaccine_slot_checker">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="cowin_vaccine_slot_checker"
+        android:label="Vaccine Slot Checker"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
