@@ -9,14 +9,26 @@ void main()
   runApp(MaterialApp(
     theme: ThemeData(
       fontFamily: 'RobotoSlab',
-      scaffoldBackgroundColor: Color(0xffa87de8),
+      scaffoldBackgroundColor: Color(0xffbde4f5),
+      primaryTextTheme: TextTheme(
+        headline6: TextStyle(
+          color: Colors.black87,
+        )
+      ),
       appBarTheme: AppBarTheme(
-        color: Color(0xffa87de8),
+        color: Color(0xffbde4f5),
+        iconTheme: IconThemeData(
+          color: Colors.black87,
+        ),
+        titleTextStyle: TextStyle(
+          color: Colors.black87,
+        ),
         elevation: 0,
       ),
       buttonTheme: ButtonThemeData(
-        buttonColor: Color(0xffa87de8),
+        buttonColor: Color(0xffbde4f5),
       ),
+      dividerColor: Colors.transparent,
     ),
     routes: {
       '/': (context) => HomeScreen(),
@@ -33,7 +45,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Vaccine Slot Checker'),
+        title: Text(
+          'Vaccine Slot Checker',
+        ),
       ),
       body: Center(
         child: Column(
@@ -42,18 +56,19 @@ class HomeScreen extends StatelessWidget {
             Container(
               width: (MediaQuery.of(context).size.width)/1.5,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
+                color: Color(0xffbde4f5),
+                borderRadius: BorderRadius.all(Radius.circular(15)),
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0xff8f6ac5),
-                    offset: Offset(1, 1),
-                    blurRadius: 2,
-                    spreadRadius: 3,
+                    color: Color(0xff86a2ae),
+                    offset: Offset(1.5, 1.5),
+                    blurRadius: 3,
+                    spreadRadius: 4,
                   ),
                   BoxShadow(
-                    color: Color(0xffc190ff),
-                    offset: Offset(-1, -1),
-                    blurRadius: 3,
+                    color: Color(0xfff4ffff),
+                    offset: Offset(-2, -2),
+                    blurRadius: 4,
                     spreadRadius: 2,
                   ),
                 ]
@@ -62,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                 child: Text(
                   "Search By PIN",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black87,
                     fontSize: 25,
                   ),
                 ),
@@ -75,27 +90,28 @@ class HomeScreen extends StatelessWidget {
             Container(
               width: (MediaQuery.of(context).size.width)/1.5,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xff8f6ac5),
-                      offset: Offset(1, 1),
-                      blurRadius: 2,
-                      spreadRadius: 3,
-                    ),
-                    BoxShadow(
-                      color: Color(0xffc190ff),
-                      offset: Offset(-1, -1),
-                      blurRadius: 3,
-                      spreadRadius: 2,
-                    ),
-                  ],
+                color: Color(0xffbde4f5),
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                 boxShadow: [
+                   BoxShadow(
+                     color: Color(0xff86a2ae),
+                     offset: Offset(1.5, 1.5),
+                     blurRadius: 3,
+                     spreadRadius: 4,
+                   ),
+                   BoxShadow(
+                     color: Color(0xfff4ffff),
+                     offset: Offset(-2, -2),
+                     blurRadius: 4,
+                     spreadRadius: 2,
+                   ),
+                 ],
               ),
               child: TextButton(
                 child: Text(
                   "Search By District",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black87,
                     fontSize: 25,
                   ),
                 ),

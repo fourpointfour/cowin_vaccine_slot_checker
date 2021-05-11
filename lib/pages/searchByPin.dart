@@ -26,18 +26,19 @@ class _SearchByPinState extends State<SearchByPin> {
               Container(
                 width: MediaQuery.of(context).size.width/1.5,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  color: Color(0xffbde4f5),
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
                   boxShadow: [
                     BoxShadow(
-                      color: Color(0xff8f6ac5),
-                      offset: Offset(1, 1),
-                      blurRadius: 2,
-                      spreadRadius: 3,
+                      color: Color(0xff86a2ae),
+                      offset: Offset(1.5, 1.5),
+                      blurRadius: 3,
+                      spreadRadius: 4,
                     ),
                     BoxShadow(
-                      color: Color(0xffc190ff),
-                      offset: Offset(-1, -1),
-                      blurRadius: 3,
+                      color: Color(0xfff4ffff),
+                      offset: Offset(-2, -2),
+                      blurRadius: 4,
                       spreadRadius: 2,
                     ),
                   ],
@@ -48,11 +49,11 @@ class _SearchByPinState extends State<SearchByPin> {
                     border: InputBorder.none,
                     hintText: 'Enter your pincode',
                     hintStyle: TextStyle(
-                      color: Colors.white70,
+                      color: Colors.black54,
                     ),
                   ),
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black87,
                   ),
                   validator: (value) {
                     if(value.length < 6 || value.length > 6 || value == null || value.isEmpty) {
@@ -82,18 +83,19 @@ class _SearchByPinState extends State<SearchByPin> {
               // button to search
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  color: Color(0xffbde4f5),
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
                   boxShadow: [
                     BoxShadow(
-                      color: Color(0xff8f6ac5),
-                      offset: Offset(1, 1),
-                      blurRadius: 2,
-                      spreadRadius: 3,
+                      color: Color(0xff86a2ae),
+                      offset: Offset(1.5, 1.5),
+                      blurRadius: 3,
+                      spreadRadius: 4,
                     ),
                     BoxShadow(
-                      color: Color(0xffc190ff),
-                      offset: Offset(-1, -1),
-                      blurRadius: 3,
+                      color: Color(0xfff4ffff),
+                      offset: Offset(-2, -2),
+                      blurRadius: 4,
                       spreadRadius: 2,
                     ),
                   ],
@@ -103,7 +105,7 @@ class _SearchByPinState extends State<SearchByPin> {
                     'Search',
                     style: TextStyle(
                       fontSize: 17,
-                      color: Colors.white,
+                      color: Colors.black87,
                     ),
                   ),
                   onPressed: () {

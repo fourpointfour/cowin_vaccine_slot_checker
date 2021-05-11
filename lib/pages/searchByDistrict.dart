@@ -98,24 +98,25 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
                 Container(
                   width: MediaQuery.of(context).size.width/1.4,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    color: Color(0xffbde4f5),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xff8f6ac5),
-                        offset: Offset(1, 1),
-                        blurRadius: 2,
-                        spreadRadius: 3,
+                        color: Color(0xff86a2ae),
+                        offset: Offset(1.5, 1.5),
+                        blurRadius: 3,
+                        spreadRadius: 4,
                       ),
                       BoxShadow(
-                        color: Color(0xffc190ff),
-                        offset: Offset(-1, -1),
-                        blurRadius: 3,
+                        color: Color(0xfff4ffff),
+                        offset: Offset(-2, -2),
+                        blurRadius: 4,
                         spreadRadius: 2,
                       ),
                     ],
                   ),
                   child: DropdownButton<String>(
-                    dropdownColor: Color(0xffa87de8),
+                    dropdownColor: Color(0xffbde4f5),
                     underline: Container(),
                     icon: Icon(Icons.arrow_downward_rounded, color: Colors.blue,),
                     hint: Container(
@@ -140,7 +141,7 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
                           child: Text(
                             stateName,
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black87,
                             ),
                           ),
                         ),
@@ -166,24 +167,25 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
             Container(
               width: MediaQuery.of(context).size.width/1.4,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(8)),
+                color: Color(0xffbde4f5),
+                borderRadius: BorderRadius.all(Radius.circular(15)),
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0xff8f6ac5),
-                    offset: Offset(1, 1),
-                    blurRadius: 2,
-                    spreadRadius: 3,
+                    color: Color(0xff86a2ae),
+                    offset: Offset(1.5, 1.5),
+                    blurRadius: 3,
+                    spreadRadius: 4,
                   ),
                   BoxShadow(
-                    color: Color(0xffc190ff),
-                    offset: Offset(-1, -1),
-                    blurRadius: 3,
+                    color: Color(0xfff4ffff),
+                    offset: Offset(-2, -2),
+                    blurRadius: 4,
                     spreadRadius: 2,
                   ),
                 ],
               ),
               child: DropdownButton<String>(
-                dropdownColor: Color(0xffa87de8),
+                dropdownColor: Color(0xffbde4f5),
                 underline: Container(),
                 icon: Icon(Icons.arrow_downward_rounded, color: Colors.blue,),
                 hint: Container(
@@ -205,7 +207,7 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
                       child: Text(
                         districtName,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black87,
                         ),
                       ),
                     ),
@@ -222,18 +224,19 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
             Container(
               height: 40,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+                color: Color(0xffbde4f5),
+                borderRadius: BorderRadius.all(Radius.circular(15)),
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0xff8f6ac5),
-                    offset: Offset(1, 1),
-                    blurRadius: 2,
-                    spreadRadius: 3,
+                    color: Color(0xff86a2ae),
+                    offset: Offset(1.5, 1.5),
+                    blurRadius: 3,
+                    spreadRadius: 4,
                   ),
                   BoxShadow(
-                    color: Color(0xffc190ff),
-                    offset: Offset(-1, -1),
-                    blurRadius: 3,
+                    color: Color(0xfff4ffff),
+                    offset: Offset(-2, -2),
+                    blurRadius: 4,
                     spreadRadius: 2,
                   ),
                 ],
@@ -243,7 +246,7 @@ class _SearchByDistrictState extends State<SearchByDistrict> {
                   'Search',
                   style: TextStyle(
                     fontSize: 20,
-                    color: Colors.white,
+                    color: Colors.black87,
                   ),
                 ),
                 onPressed: () {

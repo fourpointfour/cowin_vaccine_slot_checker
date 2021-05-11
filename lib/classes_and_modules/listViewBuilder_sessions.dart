@@ -19,21 +19,22 @@ class _ListViewSessionsState extends State<ListViewSessions> {
       itemCount: c.length,
       itemBuilder: (context, index) {
         return Container(
-          margin: EdgeInsets.fromLTRB(7, 5, 7, 5),
+          margin: EdgeInsets.fromLTRB(8, 7, 8, 7),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            color: Color(0xffbde4f5),
+            borderRadius: BorderRadius.all(Radius.circular(15)),
             boxShadow: [
               BoxShadow(
-                color: Color(0xff8f6ac5),
-                offset: Offset(1, 1),
-                blurRadius: 2,
+                color: Color(0xff86a2ae),
+                offset: Offset(1.5, 1.5),
+                blurRadius: 3,
                 spreadRadius: 3,
               ),
               BoxShadow(
-                color: Color(0xffc190ff),
-                offset: Offset(-1, -1),
-                blurRadius: 3,
-                spreadRadius: 2,
+                color: Color(0xfff4ffff),
+                offset: Offset(-1.5, -1.5),
+                blurRadius: 4,
+                spreadRadius: 1,
               ),
             ],
           ),
@@ -41,7 +42,7 @@ class _ListViewSessionsState extends State<ListViewSessions> {
             title: Text(
               c[index].name,
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black87,
               ),
             ),
             subtitle: Row(
@@ -52,14 +53,14 @@ class _ListViewSessionsState extends State<ListViewSessions> {
                   child: Text(
                     c[index].address,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black87,
                     ),
                   ),
                 ),
                 Text(
                   'Min Age: ${c[index].minAgeLimit}',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black87,
                   ),
                 )
               ],
@@ -76,7 +77,7 @@ class _ListViewSessionsState extends State<ListViewSessions> {
                         'Available slots: ${c[index].availableCapacity}',
                         style: TextStyle(
                           fontSize: 15,
-                          color: Colors.white,
+                          color: Colors.black87,
                         ),
                       ),
                     ),
